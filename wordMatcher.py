@@ -1,10 +1,28 @@
 #!/usr/bin/env python3
+
+# While his code does solve the problem,
+# I feel like the solution is sloppy.
+# It goes through the loops in a redundant way.
+#
+# I tried to optimize it a little, but I couldn't
+# figure it out. Right now it finds the solution 
+# then goes through all the different orders of the
+# words.
+#
+# Maybe I was too tired when I wrote it, but 
+# something minor is wrong with the recursion.
+#
+# I found the solution by using ./wordMatch.py | grep '15\['
+
 def main():
     i=0
     j=0
 #    dictPath = "/usr/share/dict/cracklib-small"
     dictPath = "/usr/share/dict/words"
     dictFull=loadDictionary(dictPath)
+    
+    # This set of words is sorted to test options for boat and
+    # then find the most obvious matches.
     wordsToMatch=('boat','berry','butter','pass','plane','flower',
             'bow','fish','skate','pool','horse','fall',
             'rail','car','way','side',
