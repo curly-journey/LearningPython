@@ -5,11 +5,19 @@ def main():
 #    dictPath = "/usr/share/dict/cracklib-small"
     dictPath = "/usr/share/dict/words"
     dictFull=loadDictionary(dictPath)
-    wordsToMatch=('flower','skate','air','black','berry',
-            'pass','water','way','car','horse',
-            'up','plane','rail','port','boat','pool','back',
-            'side','fish','fall','rain','butter','fly',
-            'bow','star','board','walk','road','sub','sun')
+    wordsToMatch=('boat','berry','butter','pass','plane','flower',
+            'bow','fish','skate','pool','horse','fall',
+            'rail','car','way','side',
+            'board','back','sub','road','walk','water',
+            'star','rain','fly','black','port','air','sun','up')
+    """wordsToMatch=('flower','berry','bow','butter',
+            'pass','plane','star','way','car','horse',
+            'up','rail','boat','pool','back',
+            'side','fish','fall','water','skate',
+            'board','walk','road','sub','sun','black',
+            'port','rain','fly','air')"""
+    print("Words to match: " + str(len(wordsToMatch)) + "\n" +
+            str(wordsToMatch))
     dictTrim=trimDict(dictFull,wordsToMatch)
     tempWords=findMatches(dictTrim,list(wordsToMatch))
     j = len(tempWords)
@@ -43,10 +51,15 @@ def findMatches(dictionary, wordList, curMatches = []):
                 recursiveMatches = findMatches(dictionary,newTempL,curMatches)
                 allFound = [] != recursiveMatches
                 print(str(len(curMatches)) + str(curMatches) + " :: " + str(newTempL))
+                #if len(newTempL) == 0: # I don't know why this doesn't work :(
+                #    return recursiveMatches
                 curMatches.remove(k)
             j += 1 
         i += 1
-#        return []
+#        return [] # this return should be valid and prevent excess looping
+# Although, it might need to be a break or something instead.
+# Logic: if you can't find a match for a word, you should just give up on that
+# path. Go back and try again.
     if len(tempList) == 0:
         return recursiveMatches
     else:
