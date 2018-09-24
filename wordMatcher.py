@@ -2,20 +2,21 @@
 def main():
     i=0
     j=0
+#    dictPath = "/usr/share/dict/cracklib-small"
     dictPath = "/usr/share/dict/words"
     dictFull=loadDictionary(dictPath)
-    wordsToMatch=('black','berry','sub','skate','air',
-            'pass','water','way','flower','car','horse',
+    wordsToMatch=('flower','skate','air','black','berry',
+            'pass','water','way','car','horse',
             'up','plane','rail','port','boat','pool','back',
-            'side','fish','fall','sun','rain','butter','fly',
-            'bow','star','board','walk','road')
+            'side','fish','fall','rain','butter','fly',
+            'bow','star','board','walk','road','sub','sun')
     dictTrim=trimDict(dictFull,wordsToMatch)
     tempWords=findMatches(dictTrim,list(wordsToMatch))
     j = len(tempWords)
     print(str(j)  + " words in list\n" + str(tempWords))
 
 def findMatches(dictionary, wordList, curMatches = []):
-    tempList = wordList
+    tempList = wordList.copy()
     newTempL = []
     allFound = False
     recursiveMatches = []
@@ -25,7 +26,7 @@ def findMatches(dictionary, wordList, curMatches = []):
     while not allFound and i < len(tempList):
         j = i + 1
         for x in tempList:
-            if j >= len(tempList) - 1: # catch out-of-range error
+            if j > len(tempList) - 1: # catch out-of-range error
                 break
             k = ""
             tempWord1 = tempList[i] + tempList[j]
@@ -36,15 +37,16 @@ def findMatches(dictionary, wordList, curMatches = []):
                 k = tempWord2
             if k != "":
                 curMatches.append(k)
-                newTempL = tempList
+                newTempL = tempList.copy()
                 newTempL.remove(tempList[j])
                 newTempL.remove(tempList[i])
                 recursiveMatches = findMatches(dictionary,newTempL,curMatches)
                 allFound = [] != recursiveMatches
-                print(curMatches)
+                print(str(len(curMatches)) + str(curMatches) + " :: " + str(newTempL))
                 curMatches.remove(k)
-            j += 1
+            j += 1 
         i += 1
+#        return []
     if len(tempList) == 0:
         return recursiveMatches
     else:
