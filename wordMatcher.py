@@ -23,10 +23,14 @@ def findMatches(dictionary, wordList, curMatches = []):
     j = 0
     k = ""
     while not allFound and i < len(tempList):
-        j = i + 1
-        for x in tempList:
+        j = 0
+#        j = i + 1
+        for x in range(len(tempList)):
+            j += 1
+            if j == i:
+                continue
             if j >= len(tempList) - 1: # catch out-of-range error
-                break
+                continue
             k = ""
             tempWord1 = tempList[i] + tempList[j]
             tempWord2 = tempList[j] + tempList[i]
@@ -37,15 +41,25 @@ def findMatches(dictionary, wordList, curMatches = []):
             if k != "":
                 curMatches.append(k)
                 newTempL = tempList
-                newTempL.remove(tempList[j])
-                newTempL.remove(tempList[i])
+                if i < len(tempList) - 1  and j < len(tempList) - 1:
+                    if tempList[j] in newTempL:
+                        newTempL.remove(tempList[j])
+                    else:
+                        print("Error: " + str(tempList[j]) + " not in list")
+                    if tempList[i] in newTempL:
+                        newTempL.remove(tempList[i])
+                    else:
+                        print("Error: " + str(tempList[i]) + " not in list")
+                else:
+                    print("out of range error" + str(curMatches))
                 recursiveMatches = findMatches(dictionary,newTempL,curMatches)
                 allFound = [] != recursiveMatches
-                print(curMatches)
+                print(str(i) + " " + str(j) + str(newTempL))
+#                newTempL = tempList
                 curMatches.remove(k)
-            j += 1
+#            j += 1
         i += 1
-    if len(tempList) == 0:
+    if len(newTempL) == 0:
         return recursiveMatches
     else:
         return []
