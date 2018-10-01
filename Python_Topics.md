@@ -7,9 +7,11 @@ If anything in here looks interesting, send me a message.
 
 * Classes and object-oriented programming
   * separate python files and the `import` command
+* command-line arguments
 * Linked Lists (not so useful in python - python lists are flexible enough already)
 * Stacks and queues
 * Recursive programming
+* command line use
 * Text editors and programming tools
 * Binary numbers and math. 
   * bit-wise addition, subtraction, how negative binary numbers work in computers
