@@ -5,6 +5,8 @@ The more straightforward and useful are at the top.
 
 If anything in here looks interesting, send me a message.
 
+* Reference variables
+  * The difference between the value and the location of the value and which category each variable type in Python falls into.
 * Classes and object-oriented programming
   * separate python files and the `import` command
 * command-line arguments
