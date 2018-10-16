@@ -11,6 +11,10 @@ This will be a list of problems that people can work on. I'll try to order them 
 
 And of course, all the problems at https://projecteuler.net/archives
 
+Another good set of problems is located at https://cs50.harvard.edu/2018/fall/psets/1/
+ - change the /1/ at the end to /2/, /3/ and /4/ for more problem sets. They were designed for the C programming language,
+ but Python should work just fine for most of it. The problem at /1/ is pretty basic.
+
 ### Suggestions
 
 If you have any questions about them, edit this document and add a new line with `    * question.` and I'll answer.
