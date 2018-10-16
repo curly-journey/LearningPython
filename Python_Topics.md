@@ -15,6 +15,11 @@ If anything in here looks interesting, send me a message.
 * Recursive programming
 * command line use
 * Text editors and programming tools
+* Debugging
+  * repl.it website has some tools
+  * IDA or GDB are common tools - I have a copy of IDA if you need it
+  * challenge: https://github.com/luongvo209/Binary-Bomb  
+    * This doesn't apply to python, since python is usually plaintext, but it is a good thing to learn.
 * Binary numbers and math. 
   * bit-wise addition, subtraction, how negative binary numbers work in computers
   * bitwise-and, bitwise-or, bit masks, bit flags, etc.
