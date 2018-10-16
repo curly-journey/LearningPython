@@ -10,3 +10,9 @@ We'll see. This does have version tracking and branching, which is nice.
 Take a look at these two files for somewhere to start.
 * Problem_Problems.md	
 * Python_Topics.md
+
+## Useful links
+
+ * Website to test/debug code: https://repl.it/
+ * Python Style Guide: https://www.python.org/dev/peps/pep-0008/
+ * Good text editor: https://atom.io
